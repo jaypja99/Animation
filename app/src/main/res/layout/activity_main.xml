@@ -41,7 +41,7 @@
         android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/ic_fade_3cell"
+        android:background="@drawable/ic_bluefade_3cell"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -66,6 +66,23 @@
         app:layout_constraintWidth_percent="0.15" />
 
 
+    <Button
+        android:id="@+id/reb_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/blue_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button_decr"
@@ -75,6 +92,7 @@
         android:text="- 10%"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/button_incr"

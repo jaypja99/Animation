@@ -22,27 +22,43 @@ class MainActivity : AppCompatActivity() {
 
         var buttonIncrement: Button? = null
         var buttonDecrement: Button? = null
+        var bluebutton: Button? = null
+        var redbutton: Button? = null
+
 
         buttonDecrement = findViewById<View>(R.id.button_decr) as Button
         buttonIncrement = findViewById<View>(R.id.button_incr) as Button
+        bluebutton = findViewById<View>(R.id.blue_button) as Button
+        redbutton = findViewById<View>(R.id.reb_button) as Button
 
         val view: View = findViewById(R.id.view1)
         val view2: View = findViewById(R.id.view2)
 
 
-        val animator = ObjectAnimator.ofFloat(view, "translationY", 500f,-1500f).apply {
+
+        val animator = ObjectAnimator.ofFloat(view, "translationY", 500f,-1350f).apply {
             duration = 8000
             start()
         }
-        val animator2 = ObjectAnimator.ofFloat(view2, "translationY", 500f,-1500f).apply {
+        val animator2 = ObjectAnimator.ofFloat(view2, "translationY", 500f,-1350f).apply {
             duration = 8000
             start()
         }
 
-            buttonIncrement?.setOnClickListener{
+
+        redbutton.setOnClickListener {
+            view.setBackgroundResource(R.drawable.ic_redfade_3cell)
+        }
+
+        bluebutton.setOnClickListener {
+            view.setBackgroundResource(R.drawable.ic_bluefade_3cell)
+        }
+
+
+        buttonIncrement?.setOnClickListener{
                 animator.start()
                 animator2.start()
-            }
+        }
 
         buttonDecrement.setOnClickListener{
 
