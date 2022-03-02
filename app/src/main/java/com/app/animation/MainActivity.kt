@@ -1,12 +1,12 @@
 package com.app.animation
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
@@ -40,14 +40,18 @@ class MainActivity : AppCompatActivity() {
 //            addUpdateListener{progress1}
 //            start()
 //        }
-
-
-
+//
+//
+//
+//
 //        val animator2 = ObjectAnimator.ofFloat(view2, "translationY", 500f,-1350f).apply {
 //            duration = 8000
 //            addUpdateListener{progress1}
 //            start()
 //        }
+//
+
+
 
 
         redbutton.setOnClickListener {
@@ -66,8 +70,10 @@ class MainActivity : AppCompatActivity() {
 //            view.animate().translationY(progress1)
             object : CountDownTimer(300000, 100) {
                 override fun onTick(millisUntilFinished: Long) {
-                    if(progress1 > -1500f){
+                    if(progress1 > -1560f){
                         progress1 -= 5f
+//                        view.animate().translationYBy(progress1)
+//                        view2.animate().translationYBy(progress1)
                         view.animate().translationY(progress1)
                         view2.animate().translationY(progress1)
                         Log.d("progress1" , progress1.toString());
