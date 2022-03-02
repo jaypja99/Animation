@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.widget.Button
+import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -32,6 +33,22 @@ class MainActivity : AppCompatActivity() {
 
         val view: View = findViewById(R.id.view1)
         val view2: View = findViewById(R.id.view2)
+
+        var seekBar = findViewById<SeekBar>(R.id.seekBar)
+        seekBar.max = 1640
+        seekBar.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                view.animate().translationY(-p1.toFloat()).duration=1000
+                view2.animate().translationY(-p1.toFloat()).duration=1000
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+            }
+
+        })
 
 
 
