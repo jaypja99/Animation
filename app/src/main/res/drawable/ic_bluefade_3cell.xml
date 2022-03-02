@@ -4,6 +4,7 @@
     android:height="138dp"
     android:viewportWidth="180"
     android:viewportHeight="138">
+
   <path
       android:pathData="M0,0h180v138h-180z">
     <aapt:attr name="android:fillColor">
@@ -18,4 +19,7 @@
       </gradient>
     </aapt:attr>
   </path>
+  <path
+      android:pathData="M0,0h338v3h-338z"
+      android:fillColor="#2E2E2E"/>
 </vector>
