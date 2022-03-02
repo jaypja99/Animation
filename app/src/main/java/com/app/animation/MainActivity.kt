@@ -1,15 +1,14 @@
 package com.app.animation
 
-import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.PathParser
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,14 +35,19 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val animator = ObjectAnimator.ofFloat(view, "translationY", 500f,-1350f).apply {
-            duration = 8000
-            start()
-        }
-        val animator2 = ObjectAnimator.ofFloat(view2, "translationY", 500f,-1350f).apply {
-            duration = 8000
-            start()
-        }
+//        val animator = ObjectAnimator.ofFloat(view, "translationY", 500f,-1350f).apply {
+//            duration = 8000
+//            addUpdateListener{progress1}
+//            start()
+//        }
+
+
+
+//        val animator2 = ObjectAnimator.ofFloat(view2, "translationY", 500f,-1350f).apply {
+//            duration = 8000
+//            addUpdateListener{progress1}
+//            start()
+//        }
 
 
         redbutton.setOnClickListener {
@@ -56,20 +60,65 @@ class MainActivity : AppCompatActivity() {
 
 
         buttonIncrement?.setOnClickListener{
-                animator.start()
-                animator2.start()
+//                animator.start()
+//                animator2.start()
+//            progress1-=10
+//            view.animate().translationY(progress1)
+            object : CountDownTimer(300000, 100) {
+                override fun onTick(millisUntilFinished: Long) {
+                    if(progress1 > -1500f){
+                        progress1 -= 5f
+                        view.animate().translationY(progress1)
+                        view2.animate().translationY(progress1)
+                        Log.d("progress1" , progress1.toString());
+                    }
+                }
+
+                override fun onFinish() {
+                }
+            }.start()
+
         }
 
         buttonDecrement.setOnClickListener{
 
-            if (animator.isPaused){
-                animator.resume()
-                animator.reverse()
-            }else{
-                animator.pause()
-                animator2.pause()
-            }
+//            if (animator.isPaused){
+//                animator.resume()
+//                animator.reverse()
+//            }else{
+//                animator.pause()
+//                animator2.pause()
+//            }
         }
+
+
+        buttonIncrement!!.setOnLongClickListener(object: View.OnLongClickListener {
+            override fun onLongClick(v: View?): Boolean {
+
+
+
+
+//                val handler = Handler(Looper.myLooper()!!)
+//                val runnable : Runnable = object : Runnable {
+//
+//                    override fun run() {
+//                        handler.removeCallbacks(this)
+//
+//                        if (buttonIncrement!!.isPressed) {
+//                            if(progress1 > -1500f){
+//                                progress1 -= 100f
+//                                view.animate().translationY(progress1).duration = 800
+//                                view2.animate().translationY(progress1).duration = 800
+//                                Log.d("progress1" , progress1.toString());
+//                            }
+//                        }
+//
+//                    }
+//                }
+//                handler.postDelayed(runnable,0)
+                return true
+            }
+        })
 
 //        buttonIncrement!!.setOnLongClickListener(object: View.OnLongClickListener {
 //            override fun onLongClick(v: View?): Boolean {
@@ -79,9 +128,10 @@ class MainActivity : AppCompatActivity() {
 //
 //                    override fun run() {
 //                        handler.removeCallbacks(this)
-//                        progress1 = progress1 + 1
-//                        if (buttonIncrement!!.isPressed) {
-//                            animator.start()
+//                        progress1 -=100
+//                        if (buttonIncrement?.isPressed) {
+//                            view.animate().translationY(progress1).duration = 800
+//                            view2.animate().translationY(progress1).duration = 800
 //                            Log.d("progress", progress1.toString())
 //                        }
 //
