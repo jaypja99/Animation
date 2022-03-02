@@ -28,32 +28,32 @@ class MainActivity : AppCompatActivity() {
 
         val view: View = findViewById(R.id.view1)
         val view2: View = findViewById(R.id.view2)
-//
 
-//        val animator2 = ObjectAnimator.ofFloat(view2, "translationY", 500f,-1500f).apply {
-//            duration = 8000
-//         //   start()
-//        }
+
+        val animator = ObjectAnimator.ofFloat(view, "translationY", 500f,-1500f).apply {
+            duration = 8000
+            start()
+        }
+        val animator2 = ObjectAnimator.ofFloat(view2, "translationY", 500f,-1500f).apply {
+            duration = 8000
+            start()
+        }
 
             buttonIncrement?.setOnClickListener{
-                progress1 = progress1 + 100
-
-                    Log.d("progress", progress1.toString())
-                val animator = ObjectAnimator.ofFloat(view, "translationY", 500f,-progress1).apply {
-                    duration = 8000
-                    start()
-
-                }
-
-
-
+                animator.start()
+                animator2.start()
             }
-//
-//        buttonDecrement?.setOnClickListener{
-//            animator.pause()
-//            animator2.pause()
-//
-//        }
+
+        buttonDecrement.setOnClickListener{
+
+            if (animator.isPaused){
+                animator.resume()
+                animator.reverse()
+            }else{
+                animator.pause()
+                animator2.pause()
+            }
+        }
 
 //        buttonIncrement!!.setOnLongClickListener(object: View.OnLongClickListener {
 //            override fun onLongClick(v: View?): Boolean {
